@@ -1,73 +1,125 @@
-# React + TypeScript + Vite
+# 📋 Process Management Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de gestão e mapeamento de processos organizacionais desenvolvido com React, TypeScript e Vite.
 
-Currently, two official plugins are available:
+## 🚀 Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 📊 Gestão de Processos
+- **Processos Raiz** - Criação e gerenciamento de processos principais
+- **Subprocessos** - Hierarquia de processos com árvore navegável
+- **Associações** - Vinculação de ferramentas, responsáveis e documentos (apenas processos raiz)
+- **Categorização** - Organização por áreas, tipos, status e prioridades
 
-## React Compiler
+### 🏢 Áreas e Organização
+- Visualização em árvore de processos por área
+- Cores personalizadas para identificação visual
+- Estatísticas e contadores por área
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🔧 Ferramentas, Responsáveis e Documentos
+- Cadastro de ferramentas utilizadas nos processos
+- Gerenciamento de responsáveis com funções e departamentos
+- Documentação vinculada aos processos
 
-## Expanding the ESLint configuration
+### 📈 Analytics e Relatórios
+- Dashboard com métricas e KPIs
+- Insights sobre processos
+- Visualização de distribuição por tipo, status e prioridade
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 📜 Changelog
+- Auditoria completa de alterações
+- Histórico de criação, edição e exclusão
+- Possibilidade de restaurar versões anteriores
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tecnologias
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **React 18** - Biblioteca JavaScript para interfaces
+- **TypeScript** - Tipagem estática
+- **Vite** - Build tool e dev server
+- **React Router** - Navegação SPA
+- **Axios** - Cliente HTTP
+- **Lucide React** - Ícones
+- **Tailwind CSS** - Estilização (implícito)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📦 Instalação
+
+```bash
+# Clone o repositório
+git clone https://github.com/JoaoVitorMouro/ProcessFrontEnd.git
+
+# Entre na pasta do projeto
+cd ProcessFrontEnd
+
+# Instale as dependências
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔧 Configuração
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Crie um arquivo `.env` na raiz do projeto:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_API_URL=http://localhost:8000/api
 ```
+
+## 🏃 Executando o Projeto
+
+### Desenvolvimento
+```bash
+npm run dev
+```
+Acesse: [http://localhost:5173](http://localhost:5173)
+
+### Build para Produção
+```bash
+npm run build
+```
+
+### Preview da Build
+```bash
+npm run preview
+```
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── components/       # Componentes reutilizáveis
+│   ├── layout/      # Layout (Header, Sidebar, etc)
+│   └── ui/          # Componentes UI (Button, Modal, etc)
+├── pages/           # Páginas da aplicação
+├── services/        # Serviços de API
+├── types/           # Tipos TypeScript
+├── hooks/           # Hooks customizados
+└── main.tsx         # Entry point
+```
+
+## 🎨 Principais Páginas
+
+- `/` - Dashboard
+- `/areas` - Gestão de Áreas
+- `/areas/:id/tree` - Árvore de Processos por Área
+- `/processes` - Lista de Processos
+- `/processes/:id` - Detalhes do Processo
+- `/tools` - Ferramentas
+- `/responsibles` - Responsáveis
+- `/documents` - Documentos
+- `/analytics` - Analytics
+- `/changelog` - Histórico de Alterações
+
+## 🔑 Recursos Especiais
+
+### Processos Raiz vs Subprocessos
+- **Processos Raiz**: Podem ter ferramentas, responsáveis e documentos associados
+- **Subprocessos**: Herdam contexto do processo pai, sem associações diretas
+
+### Associações com Observações
+Ao vincular ferramentas, responsáveis ou documentos, é possível adicionar observações específicas para cada item.
+
+## 📄 Licença
+
+Este projeto está sob licença MIT.
+
+## 👥 Autor
+
+**João Vitor Mouro**  
+GitHub: [@JoaoVitorMouro](https://github.com/JoaoVitorMouro)
